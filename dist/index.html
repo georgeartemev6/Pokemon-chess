@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#e5f7ec"><meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Chess GO · Покешахматы</title>
+  <link rel="icon" href="icon.svg"><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="landscape" aria-hidden="true"><i class="sun"></i><i class="cloud"></i><i class="cloud second"></i><i class="ridge"></i><i class="meadow"></i><i class="path"></i></div>
+  <header><div class="logo"><i class="ball"></i>Chess <strong>GO</strong></div><button id="menu-button" class="quiet" hidden>☰ Меню</button></header>
+  <section id="home" class="card" aria-label="Главное меню">
+    <div class="profile-line"><span class="portrait"><img src="art/pikachu.png" alt=""></span><label>Имя тренера<input id="username" maxlength="24" autocomplete="off" value="George" aria-label="Имя тренера"></label></div>
+    <div class="stats"><div><strong id="points">0</strong>Очки</div><div><strong id="wins">0</strong>Победы</div><div><strong id="losses">0</strong>Поражения</div></div>
+    <button class="solid play" id="enter">Играть</button>
+    <button class="catalog-link" id="catalog-button"><img src="art/eevee.png" alt=""> Мои покемоны</button>
+    <details><summary>История партий</summary><ol id="history"></ol></details>
+    <div class="links"><button class="text-button" id="help">Как играть</button><button id="restart" class="text-button" hidden>Новая партия</button></div>
+  </section>
+  <main hidden>
+    <div class="player-row"><span class="team rival"></span>Соперник</div>
+    <div class="frame"><div id="board" role="group" aria-label="Шахматная доска"></div></div>
+    <div class="player-row bottom"><span class="team"></span><span id="player-name">George</span> <span id="status" role="status"></span></div>
+    <div class="hint" aria-live="polite" id="hint"></div>
+  </main>
+  <dialog id="catalog"><div class="dialog-top"><h2>Мои покемоны</h2><button class="round close" aria-label="Закрыть">×</button></div><p>Выбери фигуру, затем покемона для неё.</p><div id="role-tabs"></div><div id="roster"></div><p id="team-note" role="status"></p></dialog>
+  <dialog id="guide"><div class="dialog-top"><h1>Как играть</h1><button class="round close" aria-label="Закрыть">×</button></div>
+    <p>Коснись своего покемона, затем отмеченной клетки. Чтобы победить, поставь мат королю соперника.</p>
+    <div id="legend"></div><p>Победа — 100 очков, ничья — 20. Незавершённая партия не влияет на счёт.</p>
+  </dialog>
+  <dialog id="reset"><h2>Начать новую партию?</h2><p>Текущая партия закончится.</p><div class="actions"><button class="quiet close">Продолжить игру</button><button class="solid" id="confirm-reset">Начать заново</button></div></dialog>
+  <dialog id="promotion"><h2>Кем станет пешка?</h2><div id="choices"></div></dialog>
+  <script type="module" src="app.js"></script>
+</body></html>
